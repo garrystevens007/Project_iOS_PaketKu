@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign Up View Controller-->
+        <!--Daftar-->
         <scene sceneID="A4X-G5-ShE">
             <objects>
                 <viewController id="UbA-gu-UYC" customClass="SignUpViewController" customModule="binus_ios_project" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,7 +83,7 @@
                         <viewLayoutGuide key="safeArea" id="guD-ry-Uzz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hdw-jM-UHf"/>
+                    <navigationItem key="navigationItem" title="Daftar" id="hdw-jM-UHf"/>
                     <connections>
                         <outlet property="gender" destination="PmA-aX-OBz" id="dQz-ao-JXW"/>
                         <outlet property="tfConfirmPassword" destination="PdP-KU-tgQ" id="a4R-Yg-nM8"/>
@@ -97,7 +97,7 @@
             </objects>
             <point key="canvasLocation" x="393" y="619"/>
         </scene>
-        <!--View Controller-->
+        <!--Artikel-->
         <scene sceneID="Rcl-AV-6P8">
             <objects>
                 <viewController id="Em9-JE-kyz" sceneMemberID="viewController">
@@ -155,7 +155,7 @@
                         <viewLayoutGuide key="safeArea" id="AwE-Ys-ofa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0cS-JC-6Gr"/>
+                    <navigationItem key="navigationItem" title="Artikel" id="0cS-JC-6Gr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEi-TH-jvO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,7 +235,7 @@
             </objects>
             <point key="canvasLocation" x="-542.02898550724638" y="197.54464285714286"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Halaman Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="binus_ios_project" customModuleProvider="target" sceneMemberID="viewController">
@@ -322,7 +322,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="S8E-SZ-Lkl"/>
+                    <navigationItem key="navigationItem" title="Halaman Login" id="S8E-SZ-Lkl"/>
                     <connections>
                         <outlet property="txtEmail" destination="94t-c5-U3O" id="eLA-E2-sEK"/>
                         <outlet property="txtPass" destination="BeI-VX-Wbq" id="WUV-4l-Jky"/>
@@ -350,7 +350,7 @@
             </objects>
             <point key="canvasLocation" x="1490" y="198"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="d90-V4-b1L">
             <objects>
                 <viewController id="rLh-H3-gb8" sceneMemberID="viewController">
@@ -402,7 +402,7 @@
                         <viewLayoutGuide key="safeArea" id="Iw3-ag-B7B"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RUA-tJ-Kwb">
+                    <navigationItem key="navigationItem" title="Profile" id="RUA-tJ-Kwb">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="gearshape" catalog="system" id="G1K-zX-nUG"/>
                     </navigationItem>
                 </viewController>
@@ -571,7 +571,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b3G-Lx-9jZ"/>
+        <segue reference="C8p-SI-7OD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NMC LOGO" width="500" height="500"/>
