@@ -14,10 +14,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-      print("Hello World")
     }
+    
 
-
+    @IBAction func btnMasuk(_ sender: Any) {
+        
+    }
+    
+    @IBAction func btnDaftar(_ sender: Any) {
+        
+        
+    }
 }
 
 

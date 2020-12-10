@@ -10,13 +10,35 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPass: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func btnMasuk(_ sender: Any) {
+        
+        if (txtEmail.text?.count)! == 0 || (txtPass.text?.count)! == 0{
+            showAlert(title: "Login Faile", message: "All fields requierd !")
+        }
+        
+    }
+    @IBAction func btnDaftar(_ sender: Any) {
+        
+    }
+    
+    
+    func showAlert(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        present(alert,animated: true,completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
