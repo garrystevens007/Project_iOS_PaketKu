@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPass: UITextField!
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class LoginViewController: UIViewController {
     @IBAction func btnMasuk(_ sender: Any) {
         
         if (txtEmail.text?.count)! == 0 || (txtPass.text?.count)! == 0{
-            showAlert(title: "Login Faile", message: "All fields requierd !")
+            showAlert(title: "Login Failed", message: "All fields requierd !")
         }
         performSegue(withIdentifier: "loginToMain", sender: self)
         

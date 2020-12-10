@@ -65,7 +65,7 @@ class SignUpViewController: UIViewController {
         
         do {
             try context.save()
-            performSegue(withIdentifier: "signUpToMain", sender: self)
+            performSegue(withIdentifier: "signUpToLogin", sender: self)
         } catch {
             print("save failed")
         }
