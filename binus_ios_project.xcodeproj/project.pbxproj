@@ -15,6 +15,7 @@
 		4B42A3ED258119CB0037577C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B42A3EB258119CB0037577C /* LaunchScreen.storyboard */; };
 		4B42A3F8258119CB0037577C /* binus_ios_projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B42A3F7258119CB0037577C /* binus_ios_projectTests.swift */; };
 		4B42A403258119CB0037577C /* binus_ios_projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B42A402258119CB0037577C /* binus_ios_projectUITests.swift */; };
+		FF108D1325825E1D002D6A1D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF108D1225825E1D002D6A1D /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		4B42A3FE258119CB0037577C /* binus_ios_projectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = binus_ios_projectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B42A402258119CB0037577C /* binus_ios_projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = binus_ios_projectUITests.swift; sourceTree = "<group>"; };
 		4B42A404258119CB0037577C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF108D1225825E1D002D6A1D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +101,14 @@
 		4B42A3DE258119C80037577C /* binus_ios_project */ = {
 			isa = PBXGroup;
 			children = (
-				4B42A3DF258119C80037577C /* AppDelegate.swift */,
 				4B42A3E1258119C80037577C /* ViewController.swift */,
+				4B42A3DF258119C80037577C /* AppDelegate.swift */,
 				4B42A3E3258119C80037577C /* Main.storyboard */,
 				4B42A3E9258119CB0037577C /* Assets.xcassets */,
 				4B42A3EB258119CB0037577C /* LaunchScreen.storyboard */,
 				4B42A3EE258119CB0037577C /* Info.plist */,
 				4B42A3E6258119C80037577C /* binus_ios_project.xcdatamodeld */,
+				FF108D1225825E1D002D6A1D /* SignUpViewController.swift */,
 			);
 			path = binus_ios_project;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				4B42A3E2258119C80037577C /* ViewController.swift in Sources */,
 				4B42A3E0258119C80037577C /* AppDelegate.swift in Sources */,
+				FF108D1325825E1D002D6A1D /* SignUpViewController.swift in Sources */,
 				4B42A3E8258119C80037577C /* binus_ios_project.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
