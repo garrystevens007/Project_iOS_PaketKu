@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
         newUsers.setValue(email, forKey: "email")
         newUsers.setValue(password, forKey: "password")
         
-        UserDefaults.standard.set(name, forKey: "name")
+
 //        tfName.text = ""
 //        tfEmail.text = ""
 //        tfPassword.text = ""

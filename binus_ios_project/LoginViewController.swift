@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import CoreData
+
+var username : String?
 
 class LoginViewController: UIViewController {
-
-    
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPass: UITextField!
+    var context: NSManagedObjectContext!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
+        
     }
     
     @IBAction func btnMasuk(_ sender: Any) {
@@ -24,7 +27,27 @@ class LoginViewController: UIViewController {
         if (txtEmail.text?.count)! == 0 || (txtPass.text?.count)! == 0{
             showAlert(title: "Login Failed", message: "All fields requierd !")
         }
-        performSegue(withIdentifier: "loginToMain", sender: self)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+        do{
+            let results = try context.fetch(request) as! [NSManagedObject]
+            for data in results{
+                if txtEmail.text == data.value(forKey: "email") as! String{
+                    if txtPass.text == data.value(forKey: "password") as! String{
+                        handleUser()
+                        performSegue(withIdentifier: "loginToMain", sender: self)
+                    }
+                    else{
+                        showAlert(title: "Login Gagal", message: "Kata sandi salah" +   "\(data.value(forKey: "password") as! String)")
+                        print(data.value(forKey: "password") as! String)
+                    }
+                }
+            }
+            showAlert(title: "Login Gagal", message: "Email tidak ditemukan")
+        }catch{
+            print("fetch failed")
+        }
+        
+        
         
     }
     @IBAction func btnDaftar(_ sender: Any) {
@@ -41,14 +64,9 @@ class LoginViewController: UIViewController {
         present(alert,animated: true,completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func handleUser(){
+        let savedUsername = UserDefaults.standard.string(forKey: "name")
+        username = savedUsername
     }
-    */
 
 }
