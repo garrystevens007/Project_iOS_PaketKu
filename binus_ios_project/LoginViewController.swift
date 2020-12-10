@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
         if (txtEmail.text?.count)! == 0 || (txtPass.text?.count)! == 0{
             showAlert(title: "Login Faile", message: "All fields requierd !")
         }
+        performSegue(withIdentifier: "loginToMain", sender: self)
         
     }
     @IBAction func btnDaftar(_ sender: Any) {
