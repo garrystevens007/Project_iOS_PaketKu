@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
                         performSegue(withIdentifier: "loginToMain", sender: self)
                     }
                     else{
-                        showAlert(title: "Login Gagal", message: "Kata sandi salah" +   "\(data.value(forKey: "password") as! String)")
+                        showAlert(title: "Login Gagal", message: "Kata sandi salah")
                         print(data.value(forKey: "password") as! String)
                     }
                 }

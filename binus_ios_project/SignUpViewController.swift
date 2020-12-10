@@ -31,23 +31,24 @@ class SignUpViewController: UIViewController {
         let password = tfPassword.text
         let passwordConfirm = tfConfirmPassword.text
         if(name?.count)! == 0 {
-            showAlert(title: "Sign Up Failed", message: "Namee invalid")
+            showAlert(title: "Sign Up Failed", message: "Name invalid")
+            return
         }
         if((name?.count)! < 4 || ((name?.count)! > 12)) {
-            print("name length must be between 4-12 characters")
-            showAlert(title: "Sign Up Failed", message: "Name invalid")
+            showAlert(title: "Sign Up Failed", message: "Name length must between 4-12 characters")
+            return
         }
         if !validateEmail(email: email!){
-            print("Email invalid")
             showAlert(title: "Sign Up Failed", message: "Email invalid")
+            return
         }
         if(!validatePassword(password: password!)){
-            print("Password must have at least 1 lowercase and 1 Uppercase")
-            showAlert(title: "Sign Up Failed", message: "Password invalid")
+            showAlert(title: "Sign Up Failed", message: "Password must have at least 1 lowercase,1 Uppercase and 1 number")
+            return
         }
         if(password != passwordConfirm){
-            print("Password and Confirm Password doesn't match")
             showAlert(title: "Sign Up Failed", message: "Password invalid")
+            return
         }
         let entity = NSEntityDescription.entity(forEntityName: "Users", in: context)
         
@@ -56,11 +57,6 @@ class SignUpViewController: UIViewController {
         newUsers.setValue(email, forKey: "email")
         newUsers.setValue(password, forKey: "password")
         
-
-//        tfName.text = ""
-//        tfEmail.text = ""
-//        tfPassword.text = ""
-//        tfConfirmPassword.text = ""
         handleUser()
         
         do {
