@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
                         
                         
                         handleUser()
+
                         print("Login As" + (currentUser?.email ?? "NIL"))
                         performSegue(withIdentifier: "loginToMain", sender: self)
                     }
