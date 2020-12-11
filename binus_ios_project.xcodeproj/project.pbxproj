@@ -20,6 +20,7 @@
 		4B5BC9C32582651D00EEB6AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5BC9C22582651D00EEB6AE /* DetailViewController.swift */; };
 		4B5BC9C52582653100EEB6AE /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5BC9C42582653100EEB6AE /* EditViewController.swift */; };
 		FF108D1325825E1D002D6A1D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF108D1225825E1D002D6A1D /* SignUpViewController.swift */; };
+		FF5C33222583DD4E00F12C68 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5C33212583DD4E00F12C68 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		4B5BC9C22582651D00EEB6AE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4B5BC9C42582653100EEB6AE /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		FF108D1225825E1D002D6A1D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		FF5C33212583DD4E00F12C68 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		4B42A3DE258119C80037577C /* binus_ios_project */ = {
 			isa = PBXGroup;
 			children = (
+				FF5C33212583DD4E00F12C68 /* TableViewCell.swift */,
 				4B42A3E1258119C80037577C /* ViewController.swift */,
 				4B42A3DF258119C80037577C /* AppDelegate.swift */,
 				4B42A3E3258119C80037577C /* Main.storyboard */,
@@ -277,6 +280,7 @@
 				4B5BC9C0258264EA00EEB6AE /* HomeViewController.swift in Sources */,
 				4B5BC9BE258264DA00EEB6AE /* LoginViewController.swift in Sources */,
 				4B42A3E2258119C80037577C /* ViewController.swift in Sources */,
+				FF5C33222583DD4E00F12C68 /* TableViewCell.swift in Sources */,
 				4B5BC9C32582651D00EEB6AE /* DetailViewController.swift in Sources */,
 				4B42A3E0258119C80037577C /* AppDelegate.swift in Sources */,
 				FF108D1325825E1D002D6A1D /* SignUpViewController.swift in Sources */,

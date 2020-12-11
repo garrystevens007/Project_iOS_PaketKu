@@ -12,6 +12,7 @@ struct dataNews{
     var title : String?
     var description : String?
     var authorEmail : String?
+    var authorName : String?
     var index : Int?
     var date : Date?
     var thumbnail : UIImage?

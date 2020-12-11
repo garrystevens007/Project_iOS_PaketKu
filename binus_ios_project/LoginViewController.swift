@@ -35,6 +35,7 @@ class LoginViewController: UIViewController {
                         UserDefaults.standard.set(data.value(forKey: "name") as! String, forKey: "name")
                         UserDefaults.standard.set(txtEmail.text, forKey: "email")
                         handleUser()
+                        print("login as \(username)")
                         performSegue(withIdentifier: "loginToMain", sender: self)
                     }
                     else{
