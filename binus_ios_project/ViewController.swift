@@ -8,6 +8,15 @@
 
 import UIKit
 
+struct dataNews{
+    var title : String?
+    var description : String?
+    var authorEmail : String?
+    var index : Int?
+    var date : Date?
+    var thumbnail : UIImage?
+}
+
 var username : String?
 var email : String?
 class ViewController: UIViewController {
