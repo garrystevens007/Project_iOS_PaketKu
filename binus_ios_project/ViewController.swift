@@ -8,10 +8,19 @@
 
 import UIKit
 
+var username : String?
+var email : String?
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        handleUser()
+        if(username != nil){
+            print("login as \(username)")
+            performSegue(withIdentifier: "alreadyLogin", sender: self)
+        }
+        print("tesss \(username)")
         // Do any additional setup after loading the view, typically from a nib.
 
     }
@@ -26,5 +35,12 @@ class ViewController: UIViewController {
         
     }
 }
+public func handleUser(){
+    let savedUsername = UserDefaults.standard.string(forKey: "name")
+    let savedEmail = UserDefaults.standard.string(forKey: "email")
+    email = savedEmail
+    username = savedUsername
+}
+
 
 

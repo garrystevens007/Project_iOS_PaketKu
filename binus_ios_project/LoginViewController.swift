@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-var username : String?
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var txtEmail: UITextField!
@@ -33,6 +32,8 @@ class LoginViewController: UIViewController {
             for data in results{
                 if txtEmail.text == data.value(forKey: "email") as! String{
                     if txtPass.text == data.value(forKey: "password") as! String{
+                        UserDefaults.standard.set(data.value(forKey: "name") as! String, forKey: "name")
+                        UserDefaults.standard.set(txtEmail.text, forKey: "email")
                         handleUser()
                         performSegue(withIdentifier: "loginToMain", sender: self)
                     }
@@ -63,10 +64,5 @@ class LoginViewController: UIViewController {
         alert.addAction(action)
         present(alert,animated: true,completion: nil)
     }
-    
-    func handleUser(){
-        let savedUsername = UserDefaults.standard.string(forKey: "name")
-        username = savedUsername
-    }
-
 }
+
