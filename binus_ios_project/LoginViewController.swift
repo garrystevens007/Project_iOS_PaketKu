@@ -34,8 +34,13 @@ class LoginViewController: UIViewController {
                     if txtPass.text == data.value(forKey: "password") as! String{
                         UserDefaults.standard.set(data.value(forKey: "name") as! String, forKey: "name")
                         UserDefaults.standard.set(txtEmail.text, forKey: "email")
+                        
+                        UserDefaults.standard.set(data.value(forKey: "gender") as! String, forKey: "gender")
+                        
+                        
                         handleUser()
-                        print("login as \(username)")
+
+                        print("Login As" + (currentUser?.email ?? "NIL"))
                         performSegue(withIdentifier: "loginToMain", sender: self)
                     }
                     else{

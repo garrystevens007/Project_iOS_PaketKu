@@ -24,6 +24,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
     }
     
+    
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         arrNews.count
