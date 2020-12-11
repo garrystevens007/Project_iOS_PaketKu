@@ -57,7 +57,14 @@ class SignUpViewController: UIViewController {
         newUsers.setValue(email, forKey: "email")
         newUsers.setValue(password, forKey: "password")
         
-        handleUser()
+        var getGender = gender.selectedSegmentIndex
+        if getGender == 0 {
+            newUsers.setValue("Pria", forKey: "gender")
+        }else if getGender == 1 {
+            newUsers.setValue("Wanita", forKey: "gender")
+        }
+        
+//        handleUser()
         
         do {
             try context.save()
@@ -67,6 +74,8 @@ class SignUpViewController: UIViewController {
         }
         
     }
+    
+    
     func handleUser(){
         let savedUsername = UserDefaults.standard.string(forKey: "name")
     }
