@@ -52,7 +52,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         cell.titleNews.text = arr[indexPath.row].title
-        cell.authorAndDate.text = " \(arr[indexPath.row].authorName) | \(arr[indexPath.row].date)"
+        cell.authorAndDate.text = " \(arr[indexPath.row].authorName!) | \(arr[indexPath.row].date)"
         cell.thumbnailNews.image = UIImage(data: arr[indexPath.row].thumbnail!)
         
         return cell

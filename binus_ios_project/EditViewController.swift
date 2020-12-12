@@ -45,8 +45,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if passIndex == nil{
             if let png = self.imgThumbnail.image?.pngData(){
 //                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser?.email, authorName: currentUser?.name, index: arr.count, date: nil, imgData: png)
-                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser?.email, authorName: "Abhi", index: arr.count, date: nil, imgData: png)
-                print("Sukses save DB, email: \(currentUser?.email), title: \(tfTitle.text), desc: \(tfDescription.text)")
+                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser!.email!, authorName: currentUser!.name!, index: arr.count, date: nil, imgData: png)
+                print("Sukses save DB, email: \(currentUser!.email!), title: \(tfTitle.text!), desc: \(tfDescription.text!)")
             }else{
                 print("pap dulu bro")
             }

@@ -15,7 +15,7 @@ class DatabaseHelper{
     static let instance = DatabaseHelper()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    func saveNewsInCoreData(at title:String, description : String, authorEmail : String?,authorName : String?, index : Int, date : Date?, imgData: Data){
+    func saveNewsInCoreData(at title:String, description : String, authorEmail : String,authorName : String, index : Int, date : Date?, imgData: Data){
         
         var news = NSEntityDescription.insertNewObject(forEntityName: "News", into: context) as! News
         
