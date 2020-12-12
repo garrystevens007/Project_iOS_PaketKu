@@ -54,7 +54,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let formattedDate = format.string(from: arr[indexPath.row].date ?? Date())
         
         cell.titleNews.text = arr[indexPath.row].title
-        cell.authorAndDate.text = " \(arr[indexPath.row].authorName ?? "NIL") | \(formattedDate)"
+
+        cell.authorAndDate.text = " \(arr[indexPath.row].authorName!) | \(formattedDate)"
+
         cell.thumbnailNews.image = UIImage(data: arr[indexPath.row].thumbnail!)
         
         
