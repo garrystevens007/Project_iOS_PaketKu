@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var selectedAuthor: String!
     var selectedIndexPath: IndexPath?
     var selectedDate: Date!
+    var selectedThumbnail: UIImage?
 
     @IBOutlet weak var newsTableView: UITableView!
     
@@ -59,6 +60,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         selectedDesc = arr[indexPath.row].desc
         //selectedDate = arrNews[indexPath.row].date
         selectedAuthor = arr[indexPath.row].authorName
+        selectedThumbnail = UIImage(data: arr[indexPath.row].thumbnail!)
         performSegue(withIdentifier: "homeToDetail", sender: nil)
     }
     
@@ -68,6 +70,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             dest.currTitle = selectedTitle
             dest.currAuthor = selectedAuthor
             dest.currDesc = selectedDesc
+            dest.currThumbnail = selectedThumbnail
                 
         }
     }

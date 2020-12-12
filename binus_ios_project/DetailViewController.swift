@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     var currAuthor: String?
     var currDesc: String?
     var currDate: Date?
+    var currThumbnail: UIImage?
     
     func adjustUI(arg : UITextView){
         arg.translatesAutoresizingMaskIntoConstraints = true
@@ -35,6 +36,7 @@ class DetailViewController: UIViewController {
         txtDesc.text = currDesc
         txtTitle.text = currTitle
         txtAuthor.text = currAuthor
+        imgThumbnail.image = currThumbnail
         adjustUI(arg: txtDesc)
         // Do any additional setup after loading the view.
     }
