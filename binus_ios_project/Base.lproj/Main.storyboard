@@ -176,7 +176,6 @@
                         <outlet property="imgThumbnail" destination="qeQ-Fv-I10" id="xxV-RR-VMZ"/>
                         <outlet property="tfDescription" destination="I2n-ns-n8O" id="Hw0-he-OYv"/>
                         <outlet property="tfTitle" destination="1Mp-zd-cRU" id="GN8-7y-PtB"/>
-                        <segue destination="D52-b6-MSd" kind="show" identifier="saveNews" id="C7N-RS-3U1"/>
                         <segue destination="BO8-WY-TaN" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="fwu-iO-W8b"/>
                     </connections>
                 </viewController>
@@ -554,7 +553,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Pr-Hx-VmV">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="Fpa-7x-awI"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="kEd-RP-T0K"/>
@@ -571,7 +570,7 @@
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMP-0L-c6m">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPL-9v-2nm">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
@@ -693,8 +692,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tEP-Qy-qA2"/>
-        <segue reference="C7N-RS-3U1"/>
         <segue reference="o31-Hr-5Ds"/>
         <segue reference="b3G-Lx-9jZ"/>
     </inferredMetricsTieBreakers>
