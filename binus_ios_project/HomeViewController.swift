@@ -49,11 +49,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! TableViewCell
-        
+        let format = DateFormatter()
+        format.dateFormat = "EEEE, d MMM yyyy HH:mm"
+        let formattedDate = format.string(from: arr[indexPath.row].date ?? Date())
         
         cell.titleNews.text = arr[indexPath.row].title
-        cell.authorAndDate.text = " \(arr[indexPath.row].authorName) | \(arr[indexPath.row].date)"
+        cell.authorAndDate.text = " \(arr[indexPath.row].authorName ?? "NIL") | \(formattedDate)"
         cell.thumbnailNews.image = UIImage(data: arr[indexPath.row].thumbnail!)
+        
         
         return cell
     }
