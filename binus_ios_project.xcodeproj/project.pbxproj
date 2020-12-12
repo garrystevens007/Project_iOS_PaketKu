@@ -22,6 +22,7 @@
 		B7E4867F2583E0A5008B8387 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E4867E2583E0A5008B8387 /* UserDetailViewController.swift */; };
 		FF108D1325825E1D002D6A1D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF108D1225825E1D002D6A1D /* SignUpViewController.swift */; };
 		FF5C33222583DD4E00F12C68 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5C33212583DD4E00F12C68 /* TableViewCell.swift */; };
+		FF65E6A82585009700240BAF /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF65E6A72585009700240BAF /* DatabaseHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		B7E4867E2583E0A5008B8387 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		FF108D1225825E1D002D6A1D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FF5C33212583DD4E00F12C68 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		FF65E6A72585009700240BAF /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				4B5BC9C22582651D00EEB6AE /* DetailViewController.swift */,
 				4B5BC9C42582653100EEB6AE /* EditViewController.swift */,
 				B7E4867E2583E0A5008B8387 /* UserDetailViewController.swift */,
+				FF65E6A72585009700240BAF /* DatabaseHelper.swift */,
 			);
 			path = binus_ios_project;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				4B5BC9C0258264EA00EEB6AE /* HomeViewController.swift in Sources */,
 				4B5BC9BE258264DA00EEB6AE /* LoginViewController.swift in Sources */,
 				B7E4867F2583E0A5008B8387 /* UserDetailViewController.swift in Sources */,
+				FF65E6A82585009700240BAF /* DatabaseHelper.swift in Sources */,
 				4B42A3E2258119C80037577C /* ViewController.swift in Sources */,
 				FF5C33222583DD4E00F12C68 /* TableViewCell.swift in Sources */,
 				4B5BC9C32582651D00EEB6AE /* DetailViewController.swift in Sources */,

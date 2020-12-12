@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-var arrNews = [dataNews]()
+var arr = [News]()
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
@@ -20,13 +19,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var selectedDate: Date!
 
     @IBOutlet weak var newsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         newsTableView.dataSource = self
         newsTableView.delegate = self
-        arrNews.append(dataNews(title: "Tes", description: "YOIII", authorEmail: "abhi@gmail.com", authorName: "abhi", index: 1, date: nil, thumbnail: nil))
-        arrNews.append(dataNews(title: "Tes2", description: "Masuk gan", authorEmail: "anjong@anjong.com", authorName: "Wisesa", index: 2, date: nil, thumbnail: nil))
+        arr = DatabaseHelper.instance.getAllNews()
+        
         
         // Do any additional setup after loading the view.
     }
@@ -35,15 +35,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        arrNews.count
+        arr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! TableViewCell
         
-        cell.titleNews.text = arrNews[indexPath.row].title!
-        cell.authorAndDate.text = " \(arrNews[indexPath.row].authorName!) | \(arrNews[indexPath.row].date)"
-        cell.thumbnailNews.image = UIImage(named: "elephant")
+        cell.titleNews.text = arr[indexPath.row].title
+        cell.authorAndDate.text = " \(arr[indexPath.row].authorName) | \(arr[indexPath.row].date)"
+        cell.thumbnailNews.image = UIImage(data: arr[indexPath.row].thumbnail!)
         
         return cell
     }
