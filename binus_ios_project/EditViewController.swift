@@ -42,6 +42,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     @IBAction func saveNews(_ sender: Any) {
+        
         if passIndex == nil{
             if let png = self.imgThumbnail.image?.pngData(){
 //                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser?.email, authorName: currentUser?.name, index: arr.count, date: nil, imgData: png)
