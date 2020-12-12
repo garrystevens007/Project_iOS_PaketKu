@@ -11,6 +11,12 @@ var arr = [News]()
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    var selectedTitle: String!
+    var selectedDesc: String!
+    var selectedEmail: String!
+    var selectedAuthor: String!
+    var selectedIndexPath: IndexPath?
+    var selectedDate: Date!
 
     @IBOutlet weak var newsTableView: UITableView!
     
@@ -44,5 +50,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedTitle = arrNews[indexPath.row].title
+        selectedDesc = arrNews[indexPath.row].description
+        //selectedDate = arrNews[indexPath.row].date
+        selectedAuthor = arrNews[indexPath.row].authorName
+        performSegue(withIdentifier: "homeToDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToDetail"{
+            let dest = segue.destination as! DetailViewController
+            dest.currTitle = selectedTitle
+            dest.currAuthor = selectedAuthor
+            dest.currDesc = selectedDesc
+            
+        }
+    }
+    
 
 }
