@@ -177,9 +177,11 @@
                         <outlet property="tfDescription" destination="I2n-ns-n8O" id="Hw0-he-OYv"/>
                         <outlet property="tfTitle" destination="1Mp-zd-cRU" id="GN8-7y-PtB"/>
                         <segue destination="D52-b6-MSd" kind="show" identifier="saveNews" id="C7N-RS-3U1"/>
+                        <segue destination="BO8-WY-TaN" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="fwu-iO-W8b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UEi-TH-jvO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="BO8-WY-TaN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3350.7246376811595" y="-186.16071428571428"/>
         </scene>
@@ -691,7 +693,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mfB-tP-nwV"/>
+        <segue reference="tEP-Qy-qA2"/>
+        <segue reference="C7N-RS-3U1"/>
         <segue reference="o31-Hr-5Ds"/>
         <segue reference="b3G-Lx-9jZ"/>
     </inferredMetricsTieBreakers>

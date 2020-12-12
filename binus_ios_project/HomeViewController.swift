@@ -33,6 +33,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     
+    
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         arr.count
@@ -54,7 +56,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTitle = arr[indexPath.row].title
-        selectedDesc = arr[indexPath.row].description
+        selectedDesc = arr[indexPath.row].desc
         //selectedDate = arrNews[indexPath.row].date
         selectedAuthor = arr[indexPath.row].authorName
         performSegue(withIdentifier: "homeToDetail", sender: nil)
@@ -70,5 +72,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    @IBAction func unwindToHome(_ sender: UIStoryboardSegue){}
+    
 
 }
+

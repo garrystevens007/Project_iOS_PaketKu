@@ -33,6 +33,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             if let png = self.imgThumbnail.image?.pngData(){
 //                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser?.email, authorName: currentUser?.name, index: arr.count, date: nil, imgData: png)
                 DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser?.email, authorName: "Abhi", index: arr.count, date: nil, imgData: png)
+                print("Sukses save DB, email: \(currentUser?.email), title: \(tfTitle.text), desc: \(tfDescription.text)")
             }else{
                 print("pap dulu bro")
             }
@@ -44,7 +45,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                print("pap dulu bro")
            }
         }
-        performSegue(withIdentifier: "saveNews", sender: self)
+        performSegue(withIdentifier: "unwindToHome", sender: self)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
