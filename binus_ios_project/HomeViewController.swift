@@ -66,7 +66,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             dest.currTitle = selectedTitle
             dest.currAuthor = selectedAuthor
             dest.currDesc = selectedDesc
-            
+                
         }
     }
     
