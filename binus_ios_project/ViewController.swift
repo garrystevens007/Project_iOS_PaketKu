@@ -36,11 +36,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         handleUser()
-        if(username != nil){
-            print("login as \(username)")
+        if(currentUser?.name != nil){
+            print("login as \(currentUser?.name)")
             performSegue(withIdentifier: "alreadyLogin", sender: self)
         }
-        print("tesss \(username)")
+        print("tesss \(currentUser?.name)")
         // Do any additional setup after loading the view, typically from a nib.
 
     }

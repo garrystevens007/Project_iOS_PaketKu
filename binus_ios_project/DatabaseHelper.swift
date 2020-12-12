@@ -37,7 +37,7 @@ class DatabaseHelper{
     func updateNews(at title:String, description : String, index : Int ,imgData: Data){
         
         var fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
-        fetchRequest.predicate = NSPredicate(format: "index = %@", index)
+        fetchRequest.predicate = NSPredicate(format: "index == \(index)")
         
         do {
             let results = try context.fetch(fetchRequest) as! [NSManagedObject]

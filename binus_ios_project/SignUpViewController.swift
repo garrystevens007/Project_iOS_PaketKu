@@ -76,10 +76,6 @@ class SignUpViewController: UIViewController {
     }
     
     
-    func handleUser(){
-        let savedUsername = UserDefaults.standard.string(forKey: "name")
-    }
-    
     func validateEmail(email : String) -> Bool{
         let emailRegEx = "[A-Z0-9a-z._%+-]+@([A-Za-z][A-Z0-9a-z._%+-]*)+\\.(com|co\\.id)$"
         let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
