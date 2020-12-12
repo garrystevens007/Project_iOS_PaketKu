@@ -52,10 +52,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedTitle = arrNews[indexPath.row].title
-        selectedDesc = arrNews[indexPath.row].description
+        selectedTitle = arr[indexPath.row].title
+        selectedDesc = arr[indexPath.row].description
         //selectedDate = arrNews[indexPath.row].date
-        selectedAuthor = arrNews[indexPath.row].authorName
+        selectedAuthor = arr[indexPath.row].authorName
         performSegue(withIdentifier: "homeToDetail", sender: nil)
     }
     
