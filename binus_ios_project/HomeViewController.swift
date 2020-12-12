@@ -26,6 +26,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         newsTableView.dataSource = self
         newsTableView.delegate = self
+        
+        let app = UIApplication.shared
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: app)
+        
         arr = DatabaseHelper.instance.getAllNews()
         
         
@@ -33,7 +37,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
+    @objc func applicationWillEnterForeground(){
+        refresh()
+    }
     
     
 
@@ -55,10 +61,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 120
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        arr = DatabaseHelper.instance.getAllNews()
+        refresh()
+    }
+    
+    func refresh(){
+        self.newsTableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTitle = arr[indexPath.row].title
         selectedDesc = arr[indexPath.row].desc
         //selectedDate = arrNews[indexPath.row].date
+        selectedIndexPath = indexPath
         selectedAuthor = arr[indexPath.row].authorName
         selectedThumbnail = UIImage(data: arr[indexPath.row].thumbnail!)
         performSegue(withIdentifier: "homeToDetail", sender: nil)
@@ -71,11 +87,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             dest.currAuthor = selectedAuthor
             dest.currDesc = selectedDesc
             dest.currThumbnail = selectedThumbnail
-                
+            dest.currIndex = selectedIndexPath
         }
     }
     
-    @IBAction func unwindToHome(_ sender: UIStoryboardSegue){}
+    @IBAction func unwindToHome(_ sender: UIStoryboardSegue){
+        //arr = DatabaseHelper.instance.getAllNews()
+        refresh()
+    }
     
 
 }

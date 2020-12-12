@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var txtDescription: UITextView!
     @IBOutlet weak var txtAuthor: UILabel!
     
+    var currIndex: IndexPath?
     var currTitle: String?
     var currAuthor: String?
     var currDesc: String?
@@ -29,6 +30,9 @@ class DetailViewController: UIViewController {
     }
     
     
+    @IBAction func btnEdit(_ sender: Any) {
+        performSegue(withIdentifier: "editFromDetail", sender: nil)
+    }
     @IBOutlet weak var txtDesc: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,16 @@ class DetailViewController: UIViewController {
         imgThumbnail.image = currThumbnail
         adjustUI(arg: txtDesc)
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editFromDetail"{
+            let dest = segue.destination as! EditViewController
+            dest.editTitle = currTitle
+            dest.editDesc = currDesc
+            dest.editImage = currThumbnail
+            dest.passIndex = currIndex
+        }
     }
     
 

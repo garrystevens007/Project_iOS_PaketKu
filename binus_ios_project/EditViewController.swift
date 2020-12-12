@@ -16,8 +16,21 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tfDescription: UITextField!
     var passIndex : IndexPath?
+    
+    var editTitle: String?
+    var editDesc: String?
+    var editImage: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\(passIndex)")
+        if passIndex != nil{
+            tfTitle.text = editTitle
+            tfDescription.text = editDesc
+            imgThumbnail.image = editImage
+        }else{
+            passIndex = nil
+        }
+        
     }
     
     @IBAction func selectImg(_ sender: Any) {
@@ -47,6 +60,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         performSegue(withIdentifier: "unwindToHome", sender: self)
     }
+
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             guard let userPickedImage = info[.editedImage] as? UIImage else { return }
