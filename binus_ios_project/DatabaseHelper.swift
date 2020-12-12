@@ -26,6 +26,7 @@ class DatabaseHelper{
         news.date = date
         news.index = Int16(index)
         news.authorName = authorName
+        
         do{
             try context.save()
         }catch let error{

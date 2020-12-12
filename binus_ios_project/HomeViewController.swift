@@ -41,6 +41,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! TableViewCell
         
+        
         cell.titleNews.text = arr[indexPath.row].title
         cell.authorAndDate.text = " \(arr[indexPath.row].authorName) | \(arr[indexPath.row].date)"
         cell.thumbnailNews.image = UIImage(data: arr[indexPath.row].thumbnail!)
