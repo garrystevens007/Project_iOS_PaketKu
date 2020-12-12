@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="News" representedClassName="News" syncable="YES" codeGenerationType="class">
         <attribute name="authorEmail" optional="YES" attributeType="String"/>
+        <attribute name="authorName" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -15,7 +16,7 @@
         <attribute name="password" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="News" positionX="-63" positionY="9" width="128" height="133"/>
+        <element name="News" positionX="-63" positionY="9" width="128" height="148"/>
         <element name="Users" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>
