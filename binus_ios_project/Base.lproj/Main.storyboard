@@ -659,7 +659,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="JOO-nN-syZ"/>
                     <connections>
+                        <outlet property="imgThumbnail" destination="Gnl-Ju-yWD" id="ozc-Ip-9fw"/>
+                        <outlet property="txtAuthor" destination="jdB-nB-w8g" id="WQT-ma-eNA"/>
+                        <outlet property="txtDate" destination="pRB-wm-k5o" id="8gY-Rr-Wmc"/>
                         <outlet property="txtDesc" destination="quT-y3-3dT" id="zJ3-lb-zkA"/>
+                        <outlet property="txtDescription" destination="quT-y3-3dT" id="i8z-PS-SLe"/>
+                        <outlet property="txtTitle" destination="pgj-xb-gGI" id="lgq-Di-sLj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzD-gZ-Hqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

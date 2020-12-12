@@ -26,6 +26,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         newsTableView.dataSource = self
         newsTableView.delegate = self
         arrNews.append(dataNews(title: "Tes", description: "YOIII", authorEmail: "abhi@gmail.com", authorName: "abhi", index: 1, date: nil, thumbnail: nil))
+        arrNews.append(dataNews(title: "Tes2", description: "Masuk gan", authorEmail: "anjong@anjong.com", authorName: "Wisesa", index: 2, date: nil, thumbnail: nil))
         
         // Do any additional setup after loading the view.
     }
@@ -58,6 +59,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         performSegue(withIdentifier: "homeToDetail", sender: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToDetail"{
+            let dest = segue.destination as! DetailViewController
+            dest.currTitle = selectedTitle
+            dest.currAuthor = selectedAuthor
+            dest.currDesc = selectedDesc
+            
+        }
+    }
     
 
 }
