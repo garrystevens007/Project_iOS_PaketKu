@@ -99,6 +99,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    @IBAction func unwindFromDelete(_ sender: UIStoryboardSegue){
+        refresh()
+    }
+    
     @IBAction func unwindToHome(_ sender: UIStoryboardSegue){
         //arr = DatabaseHelper.instance.getAllNews()
         refresh()
