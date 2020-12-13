@@ -17,9 +17,11 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var tfDescription: UITextField!
     var passIndex : IndexPath?
     
+    var editIndexData: Int32?
     var editTitle: String?
     var editDesc: String?
     var editImage: UIImage?
+    var flag = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         print("\(passIndex)")
@@ -42,19 +44,23 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     @IBAction func saveNews(_ sender: Any) {
-        
+        do{
+            let push = try UserDefaults.standard.integer(forKey: "push")
+        }catch{
+            UserDefaults.standard.set(0, forKey: "push")
+        }
         if passIndex == nil{
             if let png = self.imgThumbnail.image?.pngData(){
-//                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser?.email, authorName: currentUser?.name, index: arr.count, date: nil, imgData: png)
-                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser!.email!, authorName: currentUser!.name!, index: arr.count, date: Date(), imgData: png)
+                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser!.email!, authorName: currentUser!.name!, index: UserDefaults.standard.integer(forKey: "push"), date: Date(), imgData: png)
                 print("Sukses save DB, email: \(currentUser!.email!), title: \(tfTitle.text!), desc: \(tfDescription.text!)")
+                UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "push") + 1, forKey: "push")
             }else{
                 print("pap dulu bro")
             }
         }
         else{
            if let png = self.imgThumbnail.image?.pngData(){
-            DatabaseHelper.instance.updateNews(at: tfTitle.text!, description: tfDescription.text!, index: passIndex!.row, imgData: png)
+            DatabaseHelper.instance.updateNews(at: tfTitle.text!, description: tfDescription.text!, index: Int(exactly: NSNumber(value: editIndexData!))!, imgData: png)
            }else{
                print("pap dulu bro")
            }

@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     var currDate: Date?
     var currThumbnail: UIImage?
     var currAuthorEmail: String?
-    var currIndexData: Int16?
+    var currIndexData: Int32?
     func adjustUI(arg : UITextView){
         arg.translatesAutoresizingMaskIntoConstraints = true
         arg.sizeToFit()
@@ -72,6 +72,7 @@ class DetailViewController: UIViewController {
             dest.editDesc = currDesc
             dest.editImage = currThumbnail
             dest.passIndex = currIndex
+            dest.editIndexData = currIndexData
         }
     }
     
