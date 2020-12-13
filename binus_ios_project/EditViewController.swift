@@ -44,13 +44,25 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     @IBAction func saveNews(_ sender: Any) {
+
         do{
             let push = try UserDefaults.standard.integer(forKey: "push")
         }catch{
             UserDefaults.standard.set(0, forKey: "push")
         }
         if passIndex == nil{
-            if let png = self.imgThumbnail.image?.pngData(){
+          
+          let defaultPng = UIImage(named: "defaultIMG")?.pngData()
+          
+          if(tfTitle.text == ""){
+                showAlert(title: "Perhatian", message: "Anda harus mengisi judul artikel!")
+                return
+            }else if (tfDescription.text == ""){
+                showAlert(title: "Perhatian", message: "Anda harus mengisi isi artikel!")
+                return
+            }
+          
+            else if let png = self.imgThumbnail.image?.pngData(){
                 DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser!.email!, authorName: currentUser!.name!, index: UserDefaults.standard.integer(forKey: "push"), date: Date(), imgData: png)
                 print("Sukses save DB, email: \(currentUser!.email!), title: \(tfTitle.text!), desc: \(tfDescription.text!)")
                 UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "push") + 1, forKey: "push")
@@ -61,11 +73,13 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         else{
            if let png = self.imgThumbnail.image?.pngData(){
             DatabaseHelper.instance.updateNews(at: tfTitle.text!, description: tfDescription.text!, index: Int(exactly: NSNumber(value: editIndexData!))!, imgData: png)
+
            }else{
-               print("pap dulu bro")
+            showAlert(title: "Perhatian", message: "Anda harus mengisi gambar artikel!")
+            return
            }
         }
-        performSegue(withIdentifier: "unwindToHome", sender: self)
+        
     }
 
     
@@ -74,6 +88,15 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             guard let userPickedImage = info[.editedImage] as? UIImage else { return }
             imgThumbnail.image = userPickedImage
             picker.dismiss(animated: true)
+    }
+    
+    func showAlert(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Mengerti", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        present(alert,animated: true,completion: nil)
     }
 
 }
