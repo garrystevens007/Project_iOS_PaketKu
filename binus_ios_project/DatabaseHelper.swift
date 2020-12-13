@@ -63,4 +63,24 @@ class DatabaseHelper{
         return arrFetchNews
     }
     
+    func deleteNews(index : Int){
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
+        fetchRequest.predicate = NSPredicate(format: "index == \(index)")
+        
+        do{
+            let test = try context.fetch(fetchRequest) as! [News]
+            
+            let objectToDelete = test[0] as! News
+            context.delete(objectToDelete)
+            
+            do{
+                try context.save()
+            }catch let error{
+                print(error.localizedDescription)
+            }
+        }catch let error{
+            print(error.localizedDescription)
+        }
+    }
+    
 }
