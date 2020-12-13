@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var selectedDesc: String!
     var selectedEmail: String!
     var selectedAuthor: String!
+    var selectedIndexData: Int32!
     var selectedIndexPath: IndexPath?
     var selectedDate: Date!
     var selectedThumbnail: UIImage?
@@ -79,6 +80,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         selectedTitle = arr[indexPath.row].title
         selectedDesc = arr[indexPath.row].desc
         selectedDate = arr[indexPath.row].date
+        selectedIndexData = arr[indexPath.row].index
         selectedIndexPath = indexPath
         selectedAuthor = arr[indexPath.row].authorName
         selectedThumbnail = UIImage(data: arr[indexPath.row].thumbnail!)
@@ -96,7 +98,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             dest.currIndex = selectedIndexPath
             dest.currAuthorEmail = selectedEmail
             dest.currDate = selectedDate
+            dest.currIndexData = selectedIndexData
         }
+    }
+    
+    @IBAction func unwindFromDelete(_ sender: UIStoryboardSegue){
+        refresh()
     }
     
     @IBAction func unwindToHome(_ sender: UIStoryboardSegue){

@@ -22,6 +22,7 @@ struct currUser{
     var name : String?
     var gender: String?
     var email: String?
+    var push: Int?
 }
 
 var currentUser: currUser?
@@ -59,8 +60,9 @@ public func handleUser(){
     let currUsername = UserDefaults.standard.string(forKey: "name")
     let currEmail = UserDefaults.standard.string(forKey: "email")
     let currGender = UserDefaults.standard.string(forKey: "gender")
+    let currPush = UserDefaults.standard.integer(forKey: "push")
     
-    currentUser = currUser(name: currUsername, gender: currGender, email: currEmail)
+    currentUser = currUser(name: currUsername, gender: currGender, email: currEmail, push: currPush)
     
 //    currentUser?.name = currUsername
 //    currentUser?.email = currEmail

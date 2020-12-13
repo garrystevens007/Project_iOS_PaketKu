@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     var currDate: Date?
     var currThumbnail: UIImage?
     var currAuthorEmail: String?
-    
+    var currIndexData: Int32?
     func adjustUI(arg : UITextView){
         arg.translatesAutoresizingMaskIntoConstraints = true
         arg.sizeToFit()
@@ -31,6 +31,16 @@ class DetailViewController: UIViewController {
     }
     
     
+    @IBAction func btnDelete(_ sender: Any) {
+        if(currAuthorEmail != currentUser?.email){
+            showAlert(title: "Perhatian", message: "Anda tidak bisa menghapus artikel yang tidak anda tulis!")
+            return
+        }else{
+            DatabaseHelper.instance.deleteNews(index: currIndexData!)
+            performSegue(withIdentifier: "unwindFromDelete", sender: nil)
+        }
+        
+    }
     @IBAction func btnEdit(_ sender: Any) {
         if(currAuthorEmail != currentUser?.email){
             showAlert(title: "Perhatian", message: "Anda tidak bisa mengedit artikel yang tidak anda tulis!")
@@ -62,6 +72,7 @@ class DetailViewController: UIViewController {
             dest.editDesc = currDesc
             dest.editImage = currThumbnail
             dest.passIndex = currIndex
+            dest.editIndexData = currIndexData
         }
     }
     
