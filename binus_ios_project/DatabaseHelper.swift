@@ -63,7 +63,7 @@ class DatabaseHelper{
         return arrFetchNews
     }
     
-    func deleteNews(index : Int){
+    func deleteNews(index : Int16){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
         fetchRequest.predicate = NSPredicate(format: "index == \(index)")
         
