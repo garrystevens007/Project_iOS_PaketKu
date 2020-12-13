@@ -17,7 +17,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var tfDescription: UITextField!
     var passIndex : IndexPath?
     
-    var editIndexData: Int16?
+    var editIndexData: Int32?
     var editTitle: String?
     var editDesc: String?
     var editImage: UIImage?

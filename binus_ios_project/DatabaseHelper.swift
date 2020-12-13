@@ -24,7 +24,7 @@ class DatabaseHelper{
         news.desc = description
         news.authorEmail = authorEmail
         news.date = date
-        news.index = Int16(index)
+        news.index = Int32(index)
         news.authorName = authorName
         
         do{
@@ -63,7 +63,7 @@ class DatabaseHelper{
         return arrFetchNews
     }
     
-    func deleteNews(index : Int16){
+    func deleteNews(index : Int32){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
         fetchRequest.predicate = NSPredicate(format: "index == \(index)")
         

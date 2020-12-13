@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var selectedDesc: String!
     var selectedEmail: String!
     var selectedAuthor: String!
-    var selectedIndexData: Int16!
+    var selectedIndexData: Int32!
     var selectedIndexPath: IndexPath?
     var selectedDate: Date!
     var selectedThumbnail: UIImage?
