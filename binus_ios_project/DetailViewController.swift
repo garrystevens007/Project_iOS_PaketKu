@@ -31,6 +31,13 @@ class DetailViewController: UIViewController {
     }
     
     
+    @IBAction func btnDelete(_ sender: Any) {
+        if(currAuthorEmail != currentUser?.email){
+            showAlert(title: "Perhatian", message: "Anda tidak bisa menghapus artikel yang tidak anda tulis!")
+            return
+        }
+        performSegue(withIdentifier: "unwindFromDelete", sender: nil)
+    }
     @IBAction func btnEdit(_ sender: Any) {
         if(currAuthorEmail != currentUser?.email){
             showAlert(title: "Perhatian", message: "Anda tidak bisa mengedit artikel yang tidak anda tulis!")
