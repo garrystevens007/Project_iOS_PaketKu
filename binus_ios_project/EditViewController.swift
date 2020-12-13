@@ -44,22 +44,44 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func saveNews(_ sender: Any) {
         
         if passIndex == nil{
-            if let png = self.imgThumbnail.image?.pngData(){
+            if(tfTitle.text == ""){
+                showAlert(title: "Perhatian", message: "Anda harus mengisi judul artikel!")
+                return
+            }else if (tfDescription.text == ""){
+                showAlert(title: "Perhatian", message: "Anda harus mengisi isi artikel!")
+                return
+            }
+            
+            else if let png = self.imgThumbnail.image?.pngData(){
 //                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser?.email, authorName: currentUser?.name, index: arr.count, date: nil, imgData: png)
                 DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser!.email!, authorName: currentUser!.name!, index: arr.count, date: Date(), imgData: png)
                 print("Sukses save DB, email: \(currentUser!.email!), title: \(tfTitle.text!), desc: \(tfDescription.text!)")
+                
+                performSegue(withIdentifier: "unwindToHome", sender: self)
+                
             }else{
-                print("pap dulu bro")
+                showAlert(title: "Perhatian", message: "Anda harus mengisi gambar artikel!")
+                return
             }
         }
         else{
-           if let png = self.imgThumbnail.image?.pngData(){
+            if(tfTitle.text == ""){
+                showAlert(title: "Perhatian", message: "Anda harus mengisi judul artikel!")
+                return
+            }else if (tfDescription.text == ""){
+                showAlert(title: "Perhatian", message: "Anda harus mengisi isi artikel!")
+                return
+            }
+           else if let png = self.imgThumbnail.image?.pngData(){
             DatabaseHelper.instance.updateNews(at: tfTitle.text!, description: tfDescription.text!, index: passIndex!.row, imgData: png)
+            
+            performSegue(withIdentifier: "unwindToHome", sender: self)
            }else{
-               print("pap dulu bro")
+            showAlert(title: "Perhatian", message: "Anda harus mengisi gambar artikel!")
+            return
            }
         }
-        performSegue(withIdentifier: "unwindToHome", sender: self)
+        
     }
 
     
@@ -68,6 +90,15 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             guard let userPickedImage = info[.editedImage] as? UIImage else { return }
             imgThumbnail.image = userPickedImage
             picker.dismiss(animated: true)
+    }
+    
+    func showAlert(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Mengerti", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        present(alert,animated: true,completion: nil)
     }
 
 }
