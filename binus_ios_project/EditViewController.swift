@@ -61,6 +61,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         else{
            if let png = self.imgThumbnail.image?.pngData(){
             DatabaseHelper.instance.updateNews(at: tfTitle.text!, description: tfDescription.text!, index: Int(exactly: NSNumber(value: editIndexData!))!, imgData: png)
+            print(editIndexData)
+            print(Int(exactly: NSNumber(value: editIndexData!))!)
            }else{
                print("pap dulu bro")
            }
