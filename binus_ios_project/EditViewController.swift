@@ -43,6 +43,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     @IBAction func saveNews(_ sender: Any) {
         
+        
         if passIndex == nil{
             if(tfTitle.text == ""){
                 showAlert(title: "Perhatian", message: "Anda harus mengisi judul artikel!")
@@ -54,14 +55,18 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             else if let png = self.imgThumbnail.image?.pngData(){
 //                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser?.email, authorName: currentUser?.name, index: arr.count, date: nil, imgData: png)
-                DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser!.email!, authorName: currentUser!.name!, index: arr.count, date: Date(), imgData: png)
-                print("Sukses save DB, email: \(currentUser!.email!), title: \(tfTitle.text!), desc: \(tfDescription.text!)")
+                let defaultPng = UIImage(named: "defaultIMG")?.pngData()
                 
-                performSegue(withIdentifier: "unwindToHome", sender: self)
+                if(png != defaultPng){
+                    DatabaseHelper.instance.saveNewsInCoreData(at: tfTitle.text!, description: tfDescription.text!, authorEmail: currentUser!.email!, authorName: currentUser!.name!, index: arr.count, date: Date(), imgData: png)
+                    print("Sukses save DB, email: \(currentUser!.email!), title: \(tfTitle.text!), desc: \(tfDescription.text!)")
+                    
+                    performSegue(withIdentifier: "unwindToHome", sender: self)
+                }else{
+                    showAlert(title: "Perhatian", message: "Anda harus mengisi gambar artikel!")
+                    return
                 
-            }else{
-                showAlert(title: "Perhatian", message: "Anda harus mengisi gambar artikel!")
-                return
+            }
             }
         }
         else{
