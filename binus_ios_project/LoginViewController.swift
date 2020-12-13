@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
                 if txtEmail.text == data.value(forKey: "email") as! String{
                     if txtPass.text == data.value(forKey: "password") as! String{
                         UserDefaults.standard.set(data.value(forKey: "name") as! String, forKey: "name")
-                        UserDefaults.standard.set(txtEmail.text, forKey: "email")
+                        UserDefaults.standard.set(txtEmail.text?.lowercased(), forKey: "email")
                         
                         UserDefaults.standard.set(data.value(forKey: "gender") as! String, forKey: "gender")
                         

@@ -51,7 +51,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! TableViewCell
         let format = DateFormatter()
         format.dateFormat = "EEEE, d MMM yyyy HH:mm"
-        let formattedDate = format.string(from: arr[indexPath.row].date ?? Date())
+        let formattedDate = format.string(from: arr[indexPath.row].date!)
         
         cell.titleNews.text = arr[indexPath.row].title
 
@@ -78,10 +78,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTitle = arr[indexPath.row].title
         selectedDesc = arr[indexPath.row].desc
-        //selectedDate = arrNews[indexPath.row].date
+        selectedDate = arr[indexPath.row].date
         selectedIndexPath = indexPath
         selectedAuthor = arr[indexPath.row].authorName
         selectedThumbnail = UIImage(data: arr[indexPath.row].thumbnail!)
+        selectedEmail = arr[indexPath.row].authorEmail
         performSegue(withIdentifier: "homeToDetail", sender: nil)
     }
     
@@ -93,6 +94,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             dest.currDesc = selectedDesc
             dest.currThumbnail = selectedThumbnail
             dest.currIndex = selectedIndexPath
+            dest.currAuthorEmail = selectedEmail
+            dest.currDate = selectedDate
         }
     }
     

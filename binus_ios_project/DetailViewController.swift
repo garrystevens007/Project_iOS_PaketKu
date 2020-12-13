@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     var currDesc: String?
     var currDate: Date?
     var currThumbnail: UIImage?
+    var currAuthorEmail: String?
     
     func adjustUI(arg : UITextView){
         arg.translatesAutoresizingMaskIntoConstraints = true
@@ -31,15 +32,24 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func btnEdit(_ sender: Any) {
+        if(currAuthorEmail != currentUser?.email){
+            showAlert(title: "Perhatian", message: "Anda tidak bisa mengedit artikel yang tidak anda tulis!")
+            return
+        }
         performSegue(withIdentifier: "editFromDetail", sender: nil)
     }
     @IBOutlet weak var txtDesc: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let format = DateFormatter()
+        format.dateFormat = "EEEE, d MMM yyyy HH:mm"
+        let formattedDate = format.string(from: currDate!)
+        
         txtDesc.text = currDesc
         txtTitle.text = currTitle
         txtAuthor.text = currAuthor
+        txtDate.text = formattedDate
         imgThumbnail.image = currThumbnail
         adjustUI(arg: txtDesc)
         // Do any additional setup after loading the view.
@@ -53,6 +63,15 @@ class DetailViewController: UIViewController {
             dest.editImage = currThumbnail
             dest.passIndex = currIndex
         }
+    }
+    
+    func showAlert(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Mengerti", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        present(alert,animated: true,completion: nil)
     }
     
 

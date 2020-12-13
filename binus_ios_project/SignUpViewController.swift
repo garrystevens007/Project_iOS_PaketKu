@@ -54,7 +54,7 @@ class SignUpViewController: UIViewController {
         
         let newUsers = NSManagedObject(entity: entity!, insertInto: context)
         newUsers.setValue(name, forKey: "name")
-        newUsers.setValue(email, forKey: "email")
+        newUsers.setValue(email?.lowercased(), forKey: "email")
         newUsers.setValue(password, forKey: "password")
         
         var getGender = gender.selectedSegmentIndex
