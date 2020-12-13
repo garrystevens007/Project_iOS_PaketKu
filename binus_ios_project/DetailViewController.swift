@@ -72,6 +72,7 @@ class DetailViewController: UIViewController {
             dest.editDesc = currDesc
             dest.editImage = currThumbnail
             dest.passIndex = currIndex
+            dest.editIndexData = currIndexData
         }
     }
     
