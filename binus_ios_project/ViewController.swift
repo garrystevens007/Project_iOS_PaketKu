@@ -18,19 +18,30 @@ struct dataNews{
     var thumbnail : UIImage?
 }
 
+struct currUser{
+    var name : String?
+    var gender: String?
+    var email: String?
+    var push: Int?
+}
+
+var currentUser: currUser?
+
 var username : String?
 var email : String?
+
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         handleUser()
-        if(username != nil){
-            print("login as \(username)")
+        if(currentUser?.name != nil){
+            print("login as \(currentUser?.name)")
             performSegue(withIdentifier: "alreadyLogin", sender: self)
         }
-        print("tesss \(username)")
+        print("tesss \(currentUser?.name)")
         // Do any additional setup after loading the view, typically from a nib.
 
     }
@@ -42,15 +53,24 @@ class ViewController: UIViewController {
     
     @IBAction func btnDaftar(_ sender: Any) {
         
-        
     }
+    @IBAction func unwindToAwal(_ sender: UIStoryboardSegue){}
 }
 public func handleUser(){
-    let savedUsername = UserDefaults.standard.string(forKey: "name")
-    let savedEmail = UserDefaults.standard.string(forKey: "email")
-    email = savedEmail
-    username = savedUsername
+    let currUsername = UserDefaults.standard.string(forKey: "name")
+    let currEmail = UserDefaults.standard.string(forKey: "email")
+    let currGender = UserDefaults.standard.string(forKey: "gender")
+    let currPush = UserDefaults.standard.integer(forKey: "push")
+    
+    currentUser = currUser(name: currUsername, gender: currGender, email: currEmail, push: currPush)
+    
+//    currentUser?.name = currUsername
+//    currentUser?.email = currEmail
+//    currentUser?.gender = currGender
 }
+
+
+
 
 
 

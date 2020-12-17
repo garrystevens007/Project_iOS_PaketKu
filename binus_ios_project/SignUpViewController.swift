@@ -43,21 +43,28 @@ class SignUpViewController: UIViewController {
             return
         }
         if(!validatePassword(password: password!)){
-            showAlert(title: "Sign Up Failed", message: "Password must have at least 1 lowercase,1 Uppercase and 1 number")
+            showAlert(title: "Sign Up Failed", message: "Password must between 5 - 15 characters")
             return
         }
         if(password != passwordConfirm){
-            showAlert(title: "Sign Up Failed", message: "Password invalid")
+            showAlert(title: "Sign Up Failed", message: "Incorrect Confirm Password")
             return
         }
         let entity = NSEntityDescription.entity(forEntityName: "Users", in: context)
         
         let newUsers = NSManagedObject(entity: entity!, insertInto: context)
         newUsers.setValue(name, forKey: "name")
-        newUsers.setValue(email, forKey: "email")
+        newUsers.setValue(email?.lowercased(), forKey: "email")
         newUsers.setValue(password, forKey: "password")
         
-        handleUser()
+        var getGender = gender.selectedSegmentIndex
+        if getGender == 0 {
+            newUsers.setValue("Pria", forKey: "gender")
+        }else if getGender == 1 {
+            newUsers.setValue("Wanita", forKey: "gender")
+        }
+        
+//        handleUser()
         
         do {
             try context.save()
@@ -67,22 +74,25 @@ class SignUpViewController: UIViewController {
         }
         
     }
-    func handleUser(){
-        let savedUsername = UserDefaults.standard.string(forKey: "name")
-    }
+    
     
     func validateEmail(email : String) -> Bool{
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@([A-Za-z][A-Z0-9a-z._%+-]*)+\\.(com|co\\.id)$"
-        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-    
-        return emailPred.evaluate(with:email)
+        if (!email.hasSuffix(".com") && !email.hasSuffix(".co.id")){
+            return false
+        }
+        if (!email.contains("@")){
+            return false
+        }
+        return true
     }
     
     func validatePassword(password : String) -> Bool{
-        let passwordRegEx = "^(?=.*[A-Z])(?=.*\\d)(?=.*[a-z]).{3,}$"
-        let passwordPred = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
-        
-        return passwordPred.evaluate(with:password)
+        if password.count < 5 || password.count > 15{
+            return false
+        }
+        else{
+          return true
+        }
     }
     
     func showAlert(title: String,message: String){

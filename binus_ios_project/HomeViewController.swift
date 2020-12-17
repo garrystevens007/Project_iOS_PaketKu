@@ -7,39 +7,110 @@
 //
 
 import UIKit
-
-var arrNews = [dataNews]()
+var arr = [News]()
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    var selectedTitle: String!
+    var selectedDesc: String!
+    var selectedEmail: String!
+    var selectedAuthor: String!
+    var selectedIndexData: Int32!
+    var selectedIndexPath: IndexPath?
+    var selectedDate: Date!
+    var selectedThumbnail: UIImage?
 
     @IBOutlet weak var newsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         newsTableView.dataSource = self
         newsTableView.delegate = self
-        arrNews.append(dataNews(title: "Tes", description: "YOIII", authorEmail: "abhi@gmail.com", authorName: "abhi", index: 1, date: nil, thumbnail: nil))
+        
+        let app = UIApplication.shared
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: app)
+        
+        arr = DatabaseHelper.instance.getAllNews()
+        
         
         // Do any additional setup after loading the view.
     }
     
+    
+    @objc func applicationWillEnterForeground(){
+        refresh()
+    }
+    
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        arrNews.count
+        arr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! TableViewCell
+        let format = DateFormatter()
+        format.dateFormat = "EEEE, d MMM yyyy HH:mm"
+        let formattedDate = format.string(from: arr[indexPath.row].date!)
         
-        cell.titleNews.text = arrNews[indexPath.row].title!
-        cell.authorAndDate.text = " \(arrNews[indexPath.row].authorName!) | \(arrNews[indexPath.row].date)"
-        cell.thumbnailNews.image = UIImage(named: "elephant")
+        cell.titleNews.text = arr[indexPath.row].title
+
+        cell.authorAndDate.text = " \(arr[indexPath.row].authorName!) | \(formattedDate)"
+
+        cell.thumbnailNews.image = UIImage(data: arr[indexPath.row].thumbnail!)
+        
         
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        arr = DatabaseHelper.instance.getAllNews()
+        refresh()
+    }
+    
+    func refresh(){
+        self.newsTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedTitle = arr[indexPath.row].title
+        selectedDesc = arr[indexPath.row].desc
+        selectedDate = arr[indexPath.row].date
+        selectedIndexData = arr[indexPath.row].index
+        selectedIndexPath = indexPath
+        selectedAuthor = arr[indexPath.row].authorName
+        selectedThumbnail = UIImage(data: arr[indexPath.row].thumbnail!)
+        selectedEmail = arr[indexPath.row].authorEmail
+        performSegue(withIdentifier: "homeToDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToDetail"{
+            let dest = segue.destination as! DetailViewController
+            dest.currTitle = selectedTitle
+            dest.currAuthor = selectedAuthor
+            dest.currDesc = selectedDesc
+            dest.currThumbnail = selectedThumbnail
+            dest.currIndex = selectedIndexPath
+            dest.currAuthorEmail = selectedEmail
+            dest.currDate = selectedDate
+            dest.currIndexData = selectedIndexData
+        }
+    }
+    
+    @IBAction func unwindFromDelete(_ sender: UIStoryboardSegue){
+        refresh()
+    }
+    
+    @IBAction func unwindToHome(_ sender: UIStoryboardSegue){
+        //arr = DatabaseHelper.instance.getAllNews()
+        refresh()
+    }
+    
 
 }
+
