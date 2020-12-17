@@ -156,7 +156,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tulis artikelmu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2n-ns-n8O">
+                            <textField opaque="NO" contentMode="TopLeft" contentHorizontalAlignment="leading" contentVerticalAlignment="top" borderStyle="bezel" placeholder="Tulis artikelmu" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I2n-ns-n8O">
                                 <rect key="frame" x="40.5" y="468" width="333" height="241"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="241" id="aVG-qr-vWT"/>
@@ -178,7 +178,7 @@
                                     <action selector="selectImg:" destination="Em9-JE-kyz" eventType="touchUpInside" id="q3T-DD-CWm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Mp-zd-cRU">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Tulis Judulmu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Mp-zd-cRU">
                                 <rect key="frame" x="40.5" y="373" width="333" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="333" id="hnn-uR-qvj"/>
